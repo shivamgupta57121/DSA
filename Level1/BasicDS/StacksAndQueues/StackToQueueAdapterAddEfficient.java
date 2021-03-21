@@ -23,15 +23,18 @@ public class Main {
     }
 
     int remove() {
-      // write your code here
       if(mainS.size() == 0){
           System.out.println("Queue underflow");
           return -1;
       }
+      // mainS -> helperS
       while(mainS.size() > 0){
           helperS.push(mainS.pop());
       }
+
       int val = helperS.pop();
+
+      // helperS -> mainS
       while(helperS.size() > 0){
         mainS.push(helperS.pop());
       }
@@ -39,15 +42,18 @@ public class Main {
     }
 
     int peek() {
-      // write your code here
        if(mainS.size() == 0){
           System.out.println("Queue underflow");
           return -1;
       }
+      // mainS -> helperS
       while(mainS.size() > 0){
           helperS.push(mainS.pop());
       }
+
       int val = helperS.peek();
+
+      // helperS -> mainS
       while(helperS.size() > 0){
         mainS.push(helperS.pop());
       }
