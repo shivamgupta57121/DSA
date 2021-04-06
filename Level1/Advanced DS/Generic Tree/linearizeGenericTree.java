@@ -171,6 +171,25 @@ public class Main {
     
   }
 
+  // optimised linearize 
+  public static Node linearize2(Node node){
+
+    // faith that all child will be linearized and it will return the tail so that one loop of getting tail is removed
+    if(node.children.size() == 0 ){
+        return node;
+    }
+    
+    Node lkt = linearize2(node.children.get(node.children.size() - 1)); // linearize last child
+
+    while(node.children.size() > 1){
+        Node lc = node.children.remove(node.children.size()-1); // remove last child from tree
+        Node slc = linearize2(node.children.get(node.children.size() - 1)); // get second last child and linearize it
+        
+        slc.children.add(lc); // add last child
+    }
+    return lkt;
+  }
+
   public static void main(String[] args) throws Exception {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     int n = Integer.parseInt(br.readLine());
