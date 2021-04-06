@@ -59,9 +59,7 @@ public class Main {
         successor = node;
         state = 2;
     } else if (state == 2){
-        // do nothing just return 
-        // no need to check for further childs
-        return;
+        // do nothing
     }
     for(Node child : node.children){
         predecessorAndSuccessor(child, data);
