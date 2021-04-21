@@ -24,7 +24,7 @@ public class Main {
               pq.add(arr[i]);
           }
       }
-      for(int i = 0 ; i < k ; i++){
+      while(pq.size() > 0 ){
           System.out.println(pq.remove());
       }
       
