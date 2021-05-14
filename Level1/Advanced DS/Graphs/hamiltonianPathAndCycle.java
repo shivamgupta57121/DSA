@@ -51,6 +51,7 @@ public class Main {
             for(Edge e : graph[vtx]){
                 if(e.nbr == osrc){
                     directEdge = true;
+                    break;
                 }
             }
             if(directEdge == true){
