@@ -11,7 +11,12 @@ public class Main {
         for(int i = 0; i < n; i++){
             moves[i] = scn.nextInt();
         }
-        System.out.println(countMinJump(moves));
+        int steps = countMinJump(moves);
+        if(steps == Integer.MAX_VALUE){
+            System.out.println("null");
+        } else {
+            System.out.println(steps);
+        }
     }
     // Tabulation
     public static int countMinJump(int moves[]){
