@@ -4,7 +4,9 @@ import java.util.*;
 public class Main {
   // Perspective - Permutation 1 (object chooses)
   public static void permutations(int[] boxes, int ci, int ti){
-    // write your code here
+    // boxes - current placement of items
+    // ci - current item to be placed
+    // ti - total item to be placed
     if(ci > ti){
         for(int v1 : boxes){
             System.out.print(v1);
@@ -14,9 +16,9 @@ public class Main {
     }
     for(int idx = 0 ; idx < boxes.length ; idx++){
         if(boxes[idx] == 0){
-            boxes[idx] = ci;
-            permutations(boxes, ci+1, ti);
-            boxes[idx] = 0;
+            boxes[idx] = ci;                    // place item
+            permutations(boxes, ci+1, ti);      // recursive call to place next
+            boxes[idx] = 0;                     // backtrack
         }
     }
   }
