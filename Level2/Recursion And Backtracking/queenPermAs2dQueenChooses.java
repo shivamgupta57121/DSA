@@ -19,6 +19,7 @@ public class Main {
                 System.out.println();
             }
             System.out.println();
+            return ;
         }
         for(int r = 0 ; r < chess.length ; r++){
             for(int c = 0 ; c < chess[0].length ; c++){
