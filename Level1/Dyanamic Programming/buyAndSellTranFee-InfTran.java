@@ -33,4 +33,38 @@ public class Main {
 
         return oSSP;
     }
+     // Dyanamic Programming - Code With State
+    public static int buyAndSellTranFeeState(int prices[], int tFee){
+        int oBSP = 0, oSSP = 0;
+        String oBS = "", oSS = "";
+
+        for(int day = 0 ; day < prices.length ; day++){
+            if(day == 0){
+                oBSP = -prices[0];
+                oBS += "B"+0;
+            } else {
+                int nBSP = Math.max(oSSP - prices[day], oBSP);
+                int nSSP = Math.max(prices[day] - tFee + oBSP,oSSP);
+                
+                String nBS = "", nSS = "";
+                if(nBSP != oBSP){
+                    nBS = oSS + "B"+day;
+                }
+                if(nSSP != oSSP){
+                    nSS = oBS + "S"+day;
+                }
+                
+                if(nBSP != oBSP){
+                    oBS = nBS;
+                }
+                if(nSSP != oSSP){
+                    oSS = nSS;
+                }
+                oBSP = nBSP;
+                oSSP = nSSP;
+            }
+        }
+        System.out.println(oSS);
+        return oSSP;
+    }
 }
